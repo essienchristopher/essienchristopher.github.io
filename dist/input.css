@@ -1,9 +1,16 @@
 
 @import "tailwindcss";
 
-.font-roboto {
-    font-family: "Roboto", sans-serif;
+
+
+*{
+    font-family: "Space Grotesk";
+    font-optical-sizing: auto;
+    font-weight:500;
+    font-style: Medium;
+    
 }
+
 
 .text-shadow-custom {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
@@ -24,4 +31,11 @@
         font-size: 18px;
         padding:20px;
     }
+}
+.project:hover .overlay {
+    opacity: 0.75;
+    cursor: pointer;
+} 
+.image-project:hover{
+    transform: scale(3px);
 }

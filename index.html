@@ -3,216 +3,458 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/5b4e564bf5.js"
+      crossorigin="anonymous"
+    ></script>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inconsolata:wdth,wght@50..200,200..900&family=Jura:wght@300..700&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Outfit:wght@100..900&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&display=swap"
       rel="stylesheet"
     />
 
     <link rel="stylesheet" href="dist/output.css" />
-    <title>PERSONAL WEBSITE</title>
+    <title>Essien Christopher - Frontend Software Developer</title>
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="12x12"
+      href="starter-code/assets/code-icon.webp"
+    />
+    <script src="App.js" defer></script>
   </head>
-  <body class="font-roboto scroll-smooth">
-    <div class="bg-blue-500 h-full overflow-hidden w-full">
+  <body class="scroll-smooth bg-[#151515]">
+    <div>
       <div
-        id="div1"
-        class="bg-[#16a596] flex items-center justify-center flex-col h-max text-center p-10"
+        class="lg:px-[80px] md:pr-0 px-[16px] relative space-grotesk lg:h-[750px] h-[700px] md:h-[650px] overflow-hidden"
       >
+        <img
+          src="starter-code/assets/images/pattern-circle.svg"
+          alt=""
+          class="absolute w-[100px] h-[100px] top-[280px] left-[320px] lg:hidden md:hidden"
+        />
+        <img
+          src="starter-code/assets/images/pattern-rings.svg"
+          alt=""
+          class="absolute left-[-250px] top-[110px] md:top-[60px]"
+        />
         <div
-          class="bg-red-500 w-[160px] h-[160px] rounded-[50%] flex justify-center items-center"
+          class="flex lg:justify-between w-[100%] flex-col-reverse lg:flex-row md:flex-row"
         >
-          <img
-            src="images/rsz_1img_4118.jpg"
-            alt=""
-            class="w-[150px] h-[150px] rounded-[50%]"
-          />
-        </div>
-        <h1 class="text-white m-[1rem] text-shadow-custom text-2xl sm:text-3xl">
-          Essien Christopher
-        </h1>
-        <i class="text-white text-[1.2rem] sm:text-[1.6rem] text-shadow-custom"
-          >Web Developer</i
-        >
-        <p class="text-white text-shadow-custom tracking-[2px]">
-          Lorem Ipsum is simply dummy text of the printing and typesetting
-          industry. Lorem Ipsum has been the industry's standard dummy text ever
-          since the 1500s, when an unknown printer took a galley of type and
-          scrambled it to make a type specimen book
-        </p>
-        <a href="#div2" class="flex justify-center items-center mt-12">
+          <!-- TEXT SECTION -->
           <div
-            id="arrow1"
-            class="w-[30px] h-[30px] border-r-emerald-50 border-b-emerald-50 border-r-3 border-b-3 rotate-45"
-          ></div
-        ></a>
-      </div>
+            class="z-20 mt-[20px] lg:w-[60%] md:w-[60%] md:items-start flex flex-col lg:items-start"
+          >
+            <h1 class="text-white text-[20px] hidden md:block lg:block">
+              Christopher
+            </h1>
 
-      <div
-        id="div2"
-        class="flex items-center justify-center w-[100vw] flex-col bg-[url('/images/coding.jpg')] bg-center bg-cover h-max text-center"
-      >
-        <div
-          class="backdrop-blur-sm bg-black/50 h-[100vh] text-center flex items-center justify-center flex-col pr-2 pl-2"
-        >
-          <img
-            src="images/about.png"
-            alt=""
-            class="w-[200px] h-[200px mt-[10%]]"
-          />
-          <h1 class="text-white text-3xl m-7">what i am all about</h1>
-          <p class="text-white tracking-[2px] mb-4">
-            it is a long established fact that a reader will be distracted by
-            the readable content of a page when looking at its layout. The point
-            of using Lorem Ipsum is that it has a more-or-less normal
-            distribution of letters, as opposed to using 'Content here, content
-            here', making it look like readable English.
-          </p>
+            <h1
+              class="text-white text-[40px] md:w-[700px] lg:text-[82px] md:text-[80px] lg:w-[730px] font-bold mt-[40px] md:mt-[80px] lg:mt-[75px] leading-[1] text-center lg:text-start md:text-start"
+            >
+              Nice to <br class="hidden md:inline lg:hidden" />
+              meet you!
 
-          <a href="#div3" class=""
-            ><div
-              id="arrow2"
-              class="w-[30px] h-[30px] border-r-emerald-50 border-b-emerald-50 border-r-3 border-b-3 rotate-45 mt-7"
-            ></div
-          ></a>
-        </div>
-      </div>
-      <div
-        id="div3"
-        class="bg-[#16a596] w-full flex items-center justify-center flex-col h-max py-6 px-[100px]"
-      >
-        <h1
-          class="text-center text-3xl mb-5 mt-2 text-white text-shadow-custom"
-        >
-          My skill sets
-        </h1>
+              <span class="hidden md:inline lg:hidden">
+                I’m
+                <span class="border-b-4 border-b-[#4EE1A0] text-[60px]"
+                  >Essien Christopher</span
+                >.
+              </span>
+            </h1>
 
-        <div class="flex flex-col items-center gap-5 w-full">
-          <div class="flex flex-col sm:flex-row gap-5 justify-center">
+            <p
+              class="text-white text-[30px] lg:text-[50px] font-bold leading-[1] lg:mt-4 text-center md:text-start md:hidden lg:inline"
+            >
+              I’m
+              <span class="border-b-4 border-b-[#4EE1A0] text-center"
+                >Essien Christopher</span
+              >.
+            </p>
+
+            <p
+              class="text-[#D9D9D9] mt-[20px] md:mt-[60px] lg:w-[380px] text-[15px] md:text-start lg:text-start lg:text-[16px] text-center"
+            >
+              Based in NIGERIA, I’m a front-end developer passionate about
+              building accessible web apps that users love.
+            </p>
+
+            <p
+              class="lg:mt-[40px] mt-[20px] md:mt-[40px] text-center lg:text-start"
+            >
+              <a
+                href="#contact"
+                class="border-b-2 border-b-[#4EE1A0] text-white pb-2.5 hover:text-[#4EE1A0] transition-colors duration-300"
+              >
+                CONTACT ME
+              </a>
+            </p>
+          </div>
+
+          <div
+            class="flex justify-center items-center lg:items-start lg:justify-start md:w-[40%] lg:w-[40%]"
+          >
+            />
             <div
-              class="w-[300px] box-small lg:w-[350px] h-[400px] bg-[rgb(32,31,31)] p-6 flex flex-col items-center justify-center"
+              class="bg-[#242424] flex flex-col relative lg:h-[600px] md:h-[600px] items-center md:overflow-hidden lg:overflow-visible overflow-hidden"
             >
               <img
-                src="images/html5.png.png"
+                src="starter-code/assets/images/pattern-circle.svg"
                 alt=""
-                class="w-[40%] h-[100px]"
+                class="absolute w-[100px] h-[100px] lg:top-[500px] lg:left-[-40px] md:left-[350px] md:top-[500px] top-[250px] left-[300px] z-100"
               />
-              <h3 class="text-2xl font-bold py-3 text-white text-shadow-custom">
-                HTML
-              </h3>
-              <p
-                class="text-center text-sm text-[18px] text-white text-shadow-custom"
+              <h1 class="text-white text-[20px] lg:hidden md:hidden mt-[18px]">
+                Christopher
+              </h1>
+              <div
+                class="flex gap-6 lg:absolute md:absolute lg:right-0 md:right-0 mt-[18px] lg:pr-[20px] md:pr-[20px]"
               >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.
-              </p>
-            </div>
-
-            <div
-              class="w-[300px] box-small lg:w-[350px] h-[400px] bg-[rgb(32,31,31)] p-10 flex flex-col items-center justify-center"
-            >
-              <img src="images/css.png" alt="" class="w-[40%] h-[100px]" />
-              <h3 class="text-2xl font-bold py-3 text-white text-shadow-custom">
-                CSS
-              </h3>
-              <p
-                class="text-center text-[18px] text-sm text-white text-shadow-custom"
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.
-              </p>
-            </div>
-            <div
-              class="w-[300px] box-small lg:w-[350px] h-[400px] bg-[rgb(32,31,31)] p-6 flex flex-col items-center justify-center"
-            >
-              <img
-                src="images/js.png.png"
-                alt=""
-                class="w-[80px] h-[80px] rounded-full"
-              />
-              <h3 class="text-2xl font-bold py-3 text-white text-shadow-custom">
-                JavaScript
-              </h3>
-              <p
-                class="text-center text-sm text-[18px] text-white text-shadow-custom"
-              >
-                Lorem Ipsum is simply dummy text of the printing and typesetting
-                industry. Lorem Ipsum is simply dummy text of the printing and
-                typesetting industry.
-              </p>
+                <a href="#" class="">
+                  <i
+                    class="fa-brands fa-github text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                  ></i>
+                </a>
+                <a href="">
+                  <i
+                    class="fa-brands fa-linkedin text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                  ></i
+                ></a>
+                <a href="">
+                  <i
+                    class="fa-brands fa-twitter text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                  ></i
+                ></a>
+              </div>
+              <div class="mt-[40px] md:pt-[60px] lg:pt-[60px]">
+                <img
+                  src="starter-code/assets/images/profilepic.png.png"
+                  alt=""
+                  class="w-[500px] hidden lg:block h-[600px]"
+                />
+                <img
+                  src="starter-code/assets/images/image-mobile.png"
+                  alt=""
+                  class="lg:hidden md:hidden"
+                />
+                <img
+                  src="starter-code/assets/images/image-tabletprofilepic.jpg.png"
+                  alt=""
+                  class="hidden md:block lg:hidden h-[600px]"
+                />
+              </div>
             </div>
           </div>
         </div>
-
-        <a href="#div4" class=""
-          ><div
-            id="arrow2"
-            class="w-[30px] h-[30px] border-r-emerald-50 border-b-emerald-50 border-r-3 border-b-3 rotate-45 mt-7"
-          ></div
-        ></a>
       </div>
-
       <div
-        id="div4"
-        class="h-max flex justify-center flex-col w-full items-center bg-[url('/images/coding.jpg')] bg-center bg-cover"
+        class="lg:px-[80px] lg:mt-[50px] mt-[0px] relative overflow-hidden lg:h-[300px] md:h-[500px] h-[800px]"
+      >
+        <div class="bg-[#FFFFFF] h-[1px] mb-[72px]"></div>
+        <div
+          class="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 p-0 md:p-[30px] lg:p-0"
+        >
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">HTML</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">CSS</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">JAVASCRIPT</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">Accessibility</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">React</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+
+          <div class="text-center md:text-left">
+            <h1 class="text-[28px] mb-2">Typescript</h1>
+            <p class="text-[14px] text-[#D9D9D9]">4 Years Experience</p>
+          </div>
+        </div>
+        <div
+          class="bg-[#FFFFFF] h-[1px] w-[100%] md:hidden lg:hidden mt-[40px] lg:mt-0"
+        ></div>
+        <img
+          src="starter-code/assets/images/pattern-rings.svg"
+          alt=""
+          class="absolute right-[-250px] md:right-[-350px] lg:right-[-300px] top-[650px] z-30 md:top-[300px] lg:top-[170px]"
+        />
+      </div>
+      <div class="px-[16px] lg:px-[80px] mt-[10px] lg:mt-0">
+        <div class="flex justify-between text-white items-center pb-[30px]">
+          <p class="lg:text-[50px] text-[20px] font-bold">Projects</p>
+          <p class="text-[12px]">
+            <a href="" class="border-b-2 border-b-[#4EE1A0] text-white pb-2.5"
+              >CONTACT ME</a
+            >
+          </p>
+        </div>
+        <div class="flex flex-col gap-[69px] projectsContainer">
+          <div
+            class="w-[100%] flex lg:flex-row md:flex-row flex-col gap-[30px]"
+          >
+            <div
+              class="w-[100%] lg:w-[50%] relative project overflow-hidden group transform transition-transform duration-500 hover:scale-90 cursor-pointer"
+            >
+              <a href="https://space-tourism-r8fk.vercel.app/">
+                <div
+                  class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+                >
+                  <h1
+                    class="text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px] hover:text-[#4EE1A0]"
+                  >
+                    View Project
+                  </h1>
+                </div>
+              </a>
+
+              <img
+                src="starter-code/Projects/space preview.jpg"
+                alt=""
+                class="w-[100%] h-[100%] image-project"
+              />
+              <div class="mt-[20px]">
+                <h1 class="text-white font-bold text-[18px]">
+                  SPACE TORIUSM WEB
+                </h1>
+                <div class="flex text-[#D9D9D9] text-[12px] gap-[18px]">
+                  <p>HTML</p>
+                  <p>CSS</p>
+                  <p>JAVASCRIPT</p>
+                </div>
+              </div>
+            </div>
+
+            <div
+              class="lg:w-[50%] w-[100%] relative project overflow-hidden group transform transition-transform duration-500 hover:scale-90 cursor-pointer"
+            >
+              <a href="https://mortgage-repayment-calculator1.vercel.app/">
+                <div
+                  class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+                >
+                  <h1
+                    class="z-10 text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px] hover:text-[#4EE1A0]"
+                  >
+                    View Project
+                  </h1>
+                  >
+                </div>
+              </a>
+              <img
+                src="starter-code/Projects/mortage.jpg.jpg"
+                alt=""
+                class="w-[100%] h-[100%]"
+              />
+              <div class="mt-[20px]">
+                <h1 class="text-white font-bold text-[18px]">
+                  MORTAGE CALCULATOR WEB
+                </h1>
+                <div class="flex text-[#D9D9D9] text-[12px] gap-[18px]">
+                  <p>HTML</p>
+                  <p>CSS</p>
+                  <p>JAVASCRIPT</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- <div class="w-[100%] flex gap-[30px]">
+            <div class="w-[50%] relative project">
+              <div
+                class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+              >
+                <a href="">
+                  <h1
+                    class="text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px]"
+                  >
+                    View Project
+                  </h1></a
+                >
+              </div>
+              <img
+                src="starter-code/Projects/space preview.jpg"
+                alt=""
+                class="w-[100%] h-[100%]"
+              />
+            </div>
+            <div class="w-[50%] relative project">
+              <div
+                class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+              >
+                <a href="">
+                  <h1
+                    class="text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px]"
+                  >
+                    View Project
+                  </h1></a
+                >
+              </div>
+              <img
+                src="starter-code/Projects/space preview.jpg"
+                alt=""
+                class="w-[100%] h-[100%]"
+              />
+            </div>
+          </div>
+          <div class="w-[100%] flex gap-[30px]">
+            <div class="w-[50%] relative project">
+              <div
+                class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+              >
+                <a href="">
+                  <h1
+                    class="text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px]"
+                  >
+                    View Project
+                  </h1></a
+                >
+              </div>
+              <img
+                src="starter-code/Projects/space preview.jpg"
+                alt=""
+                class="w-[100%] h-[100%]"
+              />
+            </div>
+            <div class="w-[50%] relative project">
+              <div
+                class="flex absolute w-[100%] justify-center items-center bg-[#000000] opacity-[0] h-[100%] overlay transition-opacity duration-300"
+              >
+                <a href="">
+                  <h1
+                    class="text-white uppercase border-b-2 border-b-[#4EE1A0] pb-[10px]"
+                  >
+                    View Project
+                  </h1></a
+                >
+              </div>
+              <img
+                src="starter-code/Projects/space preview.jpg"
+                alt=""
+                class="w-[100%] h-[100%]"
+              />
+            </div>
+          </div> -->
+        </div>
+      </div>
+      <div
+        class="mt-[139px] lg:px-[80px] px-[16px] lg:[px-80px] relative w-[100%] bg-[#242424] py-[50px]"
       >
         <div
-          class="bg-[rgba(0,0,0,0.6)] h-max p-6 flex justify-center flex-col w-full items-center"
+          class="flex justify-between flex-col lg:flex-row w-[100%] md:justify-center md:items-center md:px-20 lg:justify-between lg:px-0 lg:items-start"
         >
-          <div>
-            <h1 class="text-white text-shadow-custom text-center">
-              Contact Me
+          <div class="text-white">
+            <h1 class="text-[44px] font-bold text-center lg:text-start">
+              Contact
             </h1>
-            <p class="text-white text-shadow-custom text-[1rem] text-center">
-              Send me a message and i will get back to you as soon as i can.
+            <p
+              class="lg:w-[388px] w-[100%] md:w-[380px] text-center lg:text-start text-[#D9D9D9] md:text-center lg:mt-[40px]"
+            >
+              I would love to hear about your project and how I could help.
+              Please fill in the form, and I’ll get back to you as soon as
+              possible.
             </p>
+            <img
+              src="starter-code/assets/images/pattern-rings.svg"
+              alt=""
+              class="absolute left-[-205px] mt-[35px] md:top-[420px] md:left-[-350px] lg:top-[300px] top-[350px]"
+            />
+          </div>
+          <div class="relative lg:w-[50%] w-[100%] lg:mt-[10px] mt-[20px]">
             <form
               action="https://formspree.io/f/xpwlpqwz"
               method="POST"
-              class="p-5"
+              class=""
             >
               <input
-                class="border outline-none bg-white w-full mb-2 text-[1rem] pl-3 p-1"
+                class="border-b-2 bg-transparent focus:bg-transparent focus:border-[#4EE1A0] border-[#FFFFFF] text-[#FFFFFF] outline-none w-[100%] pb-[16px] px-[20px]"
                 type="text"
                 name="name"
                 id="name"
-                placeholder="Your name "
+                placeholder=" NAME "
                 required
               />
+              <div
+                class="flex gap-3 border-b-2 border-[#FFFFFF] focus-within:border-[#4EE1A0] justify-center items-center"
+              >
+                <input
+                  class="text-[#FFFFFF] outline-none w-[100%] pb-[16px] mt-[32px] px-[20px]"
+                  type="text"
+                  name="_replytos"
+                  id="email"
+                  placeholder="EMAIL"
+                  required
+                />
+                <img
+                  src="starter-code/assets/images/error icon.png"
+                  alt=""
+                  class="w-[24px] h-[24px] mt-[10px] hidden"
+                  id="errorIcon"
+                />
+              </div>
+              <p class="text-[#FF6F5B] text-right hidden" id="errorMessage">
+                Sorry, invalid format here
+              </p>
               <input
-                class="border outline-none bg-white w-full mb-2 text-[1rem] pl-3 p-1"
-                type="email"
-                name="_replytos"
-                id="email"
-                placeholder="Your email"
+                class="border-b-2 border-[#FFFFFF] text-[#FFFFFF] outline-none w-[100%] mt-[32px] pb-[80px] px-[20px] focus:border-[#4EE1A0]"
+                name="message"
+                id="message"
+                placeholder="MESSAGE"
+                type="text"
+                name=""
+                id=""
                 required
               />
-              <textarea
-                class="border outline-none bg-white w-full mb-2 text-[1rem] p-5 font-roboto"
-                name="message"
-                id=""
-                placeholder="type your message here..."
-                required
-              ></textarea>
               <button
                 type="submit"
-                class="border outline-none text-black p-1 rounded bg-white w-full mb-2 text-[1.2rem] text-center cursor-pointer hover:bg-[rgb(58,57,57)] hover:text-white transition-all duration-700 ease-in-out"
+                id="submitBtn"
+                class="border-b-2 border-b-[#4EE1A0] text-white pb-2.5 text-[1rem] cursor-pointer absolute right-0 top-[270px] mt-[32px] hover:text-[#4EE1A0] transition-colors duration-300"
               >
-                Submit
+                SEND MESSAGE
               </button>
             </form>
           </div>
-          <a href="#div1" class="flex justify-center items-center mt-6">
-            <div
-              id="arrow3"
-              class="w-[30px] h-[30px] border-l-3 border-t-3 border-emerald-50 rotate-[45deg]"
-            ></div>
-          </a>
+        </div>
+        <div class="mt-[180px] lg:pb-[40px]">
+          <div class="bg-white w-[100%] h-[2px]"></div>
+          <div
+            class="flex lg:justify-between mt-[40px] flex-col md:flex-row md:justify-between lg:flex-row justify-center items-center lg:items-start gap-[20px]"
+          >
+            <div>
+              <h1 class="text-[#FFFFFF] text-[30px] font-[700]">Christopher</h1>
+            </div>
+            <div class="flex gap-[30px]">
+              <a href="#" class="">
+                <i
+                  class="fa-brands fa-github text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                ></i>
+              </a>
+              <a href="">
+                <i
+                  class="fa-brands fa-linkedin text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                ></i
+              ></a>
+              <a href="">
+                <i
+                  class="fa-brands fa-twitter text-white hover:text-[#4EE1A0] text-[24px] transition-colors duration-300"
+                ></i
+              ></a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
-    <script src="App.js"></script>
   </body>
 </html>
