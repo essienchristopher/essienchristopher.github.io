@@ -3,14 +3,33 @@
 
 
 
-*{
+
+.font-space{
     font-family: "Space Grotesk";
     font-optical-sizing: auto;
     font-weight:500;
     font-style: Medium;
     
 }
+.font-raleway{
+    font-family: "Raleway";
+    
+    font-weight:500;
+    font-style:normal;
+}
+.reveal {
+    opacity: 0;
+    transform: translateY(2.5rem);
+    /* same as translate-y-10 */
+    transition-property: all;
+    transition-duration: 700ms;
+    transition-timing-function: ease-out;
+}
 
+.reveal-active {
+    opacity: 1;
+    transform: translateY(0);
+}
 
 .text-shadow-custom {
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
@@ -38,4 +57,77 @@
 } 
 .image-project:hover{
     transform: scale(3px);
+}
+@keyframes heartPop {
+    0% {
+        transform: scale(0.4);
+        opacity: 0;
+    }
+
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes heartPulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+}
+
+.heart-animate {
+    animation: heartPop 0.35s ease-out,
+        heartPulse 1s ease-in-out infinite 0.35s;
+}
+
+.hover-text {
+    position: relative;
+    display: inline-block;
+    overflow: hidden;
+    height: 1.5em;
+    /* match text height */
+}
+
+.hover-text .text {
+    display: block;
+    transition: transform 0.4s ease;
+    will-change: transform;
+}
+
+.hover-text .top {
+    transform: translateY(0);
+}
+
+.hover-text .bottom {
+    position: absolute;
+    left: 0;
+    top: 100%;
+}
+
+/* Hover animation */
+.hover-text:hover .top {
+    transform: translateY(-100%);
+}
+
+.hover-text:hover .bottom {
+    transform: translateY(-100%);
+}
+
+.back-link:hover .top {
+    transform: translateY(-100%);
+}
+
+.back-link:hover .bottom {
+    transform: translateY(-100%);
 }
