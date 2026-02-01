@@ -3,8 +3,19 @@ document.addEventListener("DOMContentLoaded", () => {
   if (!footer) return;
 
   const eyeContainer = footer.querySelector(".eye-container");
+  let mouthPosition = { currentX: 0, currentY: 0 };
   const eyeDots = footer.querySelectorAll(".eye-dot-inner");
   const contactItems = footer.querySelectorAll(".contact-hover");
+  const isMobile = window.matchMedia(
+    "(hover: none) and (pointer: coarse)",
+  ).matches;
+
+  if (isMobile) {
+    eyeDots.forEach((dot) => {
+      dot.textContent = "❤️";
+      dot.style.background = "transparent";
+    });
+  }
 
   let mouseX = 0;
   let mouseY = 0;
@@ -60,6 +71,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
       dot.style.transform = `translate(${eyePositions[index].currentX}px, ${eyePositions[index].currentY}px)`;
     });
+
+    if (mouseInFooter && eyeContainer) {
+      const rect = eyeContainer.getBoundingClientRect();
+      const centerX = rect.left + rect.width / 2;
+      const centerY = rect.top + rect.height / 2;
+
+      const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+
+      const maxMouthDistance = 4;
+      const mouthSpeed = 0.12;
+
+      const targetX = Math.cos(angle) * maxMouthDistance;
+      const targetY = Math.sin(angle) * maxMouthDistance;
+
+      mouthPosition.currentX += (targetX - mouthPosition.currentX) * mouthSpeed;
+      mouthPosition.currentY += (targetY - mouthPosition.currentY) * mouthSpeed;
+
+      eyeContainer.style.transform = `translate(${mouthPosition.currentX}px, ${mouthPosition.currentY}px)`;
+    } else if (eyeContainer) {
+      eyeContainer.style.transform = `translate(0px, 0px)`;
+    }
 
     requestAnimationFrame(animate);
   }
