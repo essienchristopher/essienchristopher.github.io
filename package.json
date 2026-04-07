@@ -1,16 +1,27 @@
 {
   "name": "personal-website",
   "version": "1.0.0",
+  
   "description": "",
+  "homepage": "https://github.com/christopheressien/Personal-website#readme",
+  "bugs": {
+    "url": "https://github.com/christopheressien/Personal-website/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/christopheressien/Personal-website.git"
+  },
+  "license": "ISC",
+  "author": "",
+  "type": "commonjs",
   "main": "index.js",
+  
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-       "dev": "npx @tailwindcss/cli -i ./dist/input.css -o ./dist/output.css --watch"
+    "dev":" npx @tailwindcss/cli -i ./dist/input.css -o ./dist/output.css --watch"
   },
-  "author": "",
-  "license": "ISC",
   "dependencies": {
-    "@tailwindcss/cli": "^4.1.11",
-    "tailwindcss": "^4.1.11"
+    "@tailwindcss/cli": "^4.2.1",
+    "tailwindcss": "^4.2.1"
   }
 }
