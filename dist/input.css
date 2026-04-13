@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+    overflow-x: hidden;
+}
+
 @keyframes marquee {
     0% {
         transform: translateX(-50%);
@@ -70,7 +74,6 @@
     text-shadow: 1px 1px 5px rgba(0, 0, 0, 1);
 }
 
-/* ── PROJECT OVERLAYS ───────────────────────────────────────────────────── */
 .project:hover .overlay {
     opacity: 0.75;
     cursor: pointer;
@@ -80,7 +83,6 @@
     transform: scale(1.05);
 }
 
-/* ── HEART ANIMATIONS ───────────────────────────────────────────────────── */
 @keyframes heartPop {
     0% {
         transform: scale(0.4);
@@ -113,7 +115,6 @@
     animation: heartPop 0.35s ease-out, heartPulse 1s ease-in-out infinite 0.35s;
 }
 
-/* ── HOVER TEXT SLIDE ───────────────────────────────────────────────────── */
 .hover-text {
     position: relative;
     display: inline-block;
@@ -153,7 +154,23 @@
     transform: translateY(-100%);
 }
 
-/* ── THEMES ─────────────────────────────────────────────────────────────── */
+
+a:has(.fa-arrow-up):hover .hover-text .top {
+    transform: translateY(-100%);
+}
+
+a:has(.fa-arrow-up):hover .hover-text .bottom {
+    transform: translateY(-100%);
+}
+
+
+.navbar-wrap {
+    will-change: transform, opacity;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+}
+
+
 :root {
     --bg-primary: #292828;
     --bg-secondary: #3b3838;
@@ -206,12 +223,11 @@ body.theme-green {
     background-color: var(--divider) !important;
 }
 
-/* ── CARDS — prevent overflow on all sizes ──────────────────────────────── */
 .bg-\(--bg-card\) {
     overflow: hidden;
 }
 
-/* ── COLOR PICKER — click/tap to open (all devices) ─────────────────────── */
+
 .color-open .colorselector {
     max-width: 8rem !important;
     gap: 8px;
@@ -221,14 +237,7 @@ body.theme-green {
     opacity: 1 !important;
 }
 
-/* ── NAVBAR — base ──────────────────────────────────────────────────────── */
-.navbar-wrap {
-    transition: all 0.3s ease;
-    padding-top: 0.5rem;
-    padding-bottom: 0.5rem;
-}
 
-/* Small phones (< 360px) */
 @media (max-width: 359px) {
     .nav-name {
         font-size: 13px !important;
@@ -248,7 +257,6 @@ body.theme-green {
     }
 }
 
-/* Normal phones (360px – 767px) */
 @media (min-width: 360px) and (max-width: 767px) {
     .nav-name {
         font-size: 15px !important;
@@ -264,7 +272,7 @@ body.theme-green {
     }
 }
 
-/* ── NAVBAR — color picker open state (mobile only) ─────────────────────── */
+
 @media (max-width: 767px) {
     .color-open-active .nav-name {
         font-size: 11px !important;
@@ -303,7 +311,6 @@ body.theme-green {
     }
 }
 
-/* Small phones — even more compact */
 @media (max-width: 359px) {
     .color-open-active .nav-name {
         font-size: 9px !important;
@@ -320,7 +327,7 @@ body.theme-green {
     }
 }
 
-/* ── OVERFLOW GUARD — kills horizontal scrollbar ────────────────────────── */
+
 body>div {
     overflow-x: clip;
 }
@@ -329,7 +336,6 @@ body>div {
     width: 100%;
 }
 
-/* ── HERO SECTION ───────────────────────────────────────────────────────── */
 @media (max-width: 767px) {
     #about-section {
         padding-top: 1rem;
@@ -337,6 +343,6 @@ body>div {
 }
 
 
-*::-webkit-scrollbar{
+*::-webkit-scrollbar {
     display: none;
 }

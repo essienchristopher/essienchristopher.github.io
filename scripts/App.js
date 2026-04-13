@@ -1,41 +1,95 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  // ─── ABOUT ME heading — slide from left (existing, keep) ───────────────────
-  gsap.utils.toArray(".aboutme, .whatido").forEach((el) => {
-    gsap.from(el, {
-      scrollTrigger: {
-        trigger: el,
-        start: "top 85%",
-        end: "bottom top",
-        toggleActions: "play none none reset",
-      },
-      opacity: 0,
-      x: -80,
-      duration: 1,
-      ease: "power2.out",
-    });
+  gsap.fromTo(
+    ".nav-left",
+    { x: -120, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.1 },
+  );
+
+  gsap.fromTo(
+    ".nav-right",
+    { x: 120, opacity: 0 },
+    { x: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.25 },
+  );
+
+  const navbar = document.querySelector(".navbar-wrap");
+  let lastScrollY = 0;
+  let navbarHidden = false;
+  let ticking = false;
+
+  window.addEventListener("scroll", () => {
+    if (!ticking) {
+      requestAnimationFrame(() => {
+        const currentScrollY = window.scrollY;
+
+        if (
+          currentScrollY > lastScrollY &&
+          currentScrollY > 80 &&
+          !navbarHidden
+        ) {
+          gsap.to(navbar, {
+            y: -80,
+            opacity: 0,
+            duration: 0.4,
+            ease: "power3.in",
+          });
+          navbarHidden = true;
+        } else if (currentScrollY < lastScrollY && navbarHidden) {
+          gsap.to(navbar, {
+            y: 0,
+            opacity: 1,
+            duration: 0.5,
+            ease: "power3.out",
+          });
+          navbarHidden = false;
+        }
+
+        lastScrollY = currentScrollY;
+        ticking = false;
+      });
+      ticking = true;
+    }
   });
 
-  // ─── SLIDE UP FROM BOTTOM — aboutmetext, cards, projects, contact, links ───
-  gsap.utils
-    .toArray(".aboutmetext, .cards, .projectsContainer, .contactME, .links")
-    .forEach((el) => {
-      gsap.from(el, {
+  gsap.utils.toArray(".reveal-up").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { y: 70, opacity: 0 },
+      {
+        y: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power3.out",
         scrollTrigger: {
           trigger: el,
           start: "top 90%",
           toggleActions: "play none none none",
           once: true,
         },
-        duration: 0.9,
-        opacity: 0,
-        y: 60,
-        ease: "power3.out",
-      });
-    });
+      },
+    );
+  });
 
-  // ─── FOOTER EYE ANIMATION ──────────────────────────────────────────────────
+  gsap.utils.toArray(".aboutme, .whatido").forEach((el) => {
+    gsap.fromTo(
+      el,
+      { x: -80, opacity: 0 },
+      {
+        x: 0,
+        opacity: 1,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: el,
+          start: "top 85%",
+          end: "bottom top",
+          toggleActions: "play none none reset",
+        },
+      },
+    );
+  });
+
   const footer = document.getElementById("contactME");
   if (footer) {
     const eyeContainer = footer.querySelector(".eye-container");
@@ -146,7 +200,6 @@ document.addEventListener("DOMContentLoaded", () => {
     reveals.forEach((el) => revealObserver.observe(el));
   }
 
-  // ─── FALL EFFECT OBSERVER ──────────────────────────────────────────────────
   const fallSection = document.querySelector(".fall-effect");
   if (fallSection) {
     const fallObserver = new IntersectionObserver(
@@ -160,7 +213,6 @@ document.addEventListener("DOMContentLoaded", () => {
     fallObserver.observe(fallSection);
   }
 
-  // ─── MENU ──────────────────────────────────────────────────────────────────
   const openMenu = document.querySelector(".openmenu");
   const menu = document.querySelector(".menu");
   const Section = document.querySelector(".Section");
@@ -257,8 +309,6 @@ document.addEventListener("DOMContentLoaded", () => {
     link.addEventListener("click", closeMenuFn);
   });
 
-  // ─── COLOR SWITCHER ─────────────────────────────────────────────────────────
-  // Works on BOTH desktop (click to toggle) and mobile (tap to toggle)
   const navbarWrap = document.querySelector(".navbar-wrap");
   const colorPill = document.querySelector(".color-pill");
   const colorSwatches = document.querySelectorAll(".color-swatch");
@@ -286,13 +336,11 @@ document.addEventListener("DOMContentLoaded", () => {
         closeColorPicker();
         return;
       }
-      // Toggle open/close on every device
       navbarWrap.classList.contains("color-open-active")
         ? closeColorPicker()
         : openColorPicker();
     });
 
-    // Click outside closes picker
     document.addEventListener("click", (e) => {
       if (!colorPill.contains(e.target)) closeColorPicker();
     });

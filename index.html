@@ -44,7 +44,6 @@
   <body class="scroll-smooth bg-(--bg-primary) overflow-x-hidden">
     <div>
       <div id="home" class="md:pr-0 pt-4 relative">
-        <!-- ── MENU OVERLAY ─────────────────────────────────────────────── -->
         <div class="fixed left-0 right-0 px-4 top-20 z-9999 w-full menu">
           <div
             class="w-full md:h-112.5 h-150 bg-(--bg-secondary) rounded-3xl p-4"
@@ -196,7 +195,12 @@
                     <h1 class="text-[10px] text-[#9a9393] font-bold">
                       LISTENING
                     </h1>
-                    <p class="text-white">Ocean Eyes</p>
+                    <a
+                      target="_blank"
+                      href="https://music.youtube.com/watch?v=O1PkZaFy61Y&si=V2-DhLOMoHYIgx08"
+                    >
+                      <p class="text-white">WILDFLOWER</p></a
+                    >
                   </div>
                 </div>
               </div>
@@ -204,18 +208,19 @@
           </div>
         </div>
 
-        <!-- ── NAVBAR ───────────────────────────────────────────────────── -->
         <div
-          class="navbar-wrap flex justify-between items-center text-white lg:px-7.5 px-3 md:px-6 sticky w-full top-0 z-50"
+          class="navbar-wrap fixed top-0 left-0 right-0 flex justify-between items-center text-white lg:px-7.5 px-3 md:px-6 w-full z-50 py-2"
         >
-          <div class="shrink-0">
+          <div class="shrink-0 nav-left">
             <h1
-              class="nav-name text-[15px] sm:text-[17px] md:text-2xl cursor-pointer name transition-all duration-300 whitespace-nowrap"
+              class="text-[15px] sm:text-[17px] md:text-2xl cursor-pointer name transition-all duration-300 whitespace-nowrap"
             >
               Essien Christopher
             </h1>
           </div>
-          <div class="flex justify-center items-center gap-2 md:gap-5 min-w-0">
+          <div
+            class="flex justify-center items-center nav-right gap-2 md:gap-5 min-w-0"
+          >
             <div
               class="color-pill px-2 gap-2 md:gap-3 flex items-center bg-(--bg-secondary)/60 backdrop-blur-xl rounded-3xl py-1.5 md:p-2 group cursor-pointer transition-all duration-300 min-w-0"
             >
@@ -262,9 +267,7 @@
           </div>
         </div>
 
-        <!-- ── MAIN SECTION ─────────────────────────────────────────────── -->
-        <div class="Section">
-          <!-- Marquee -->
+        <div class="Section pt-16">
           <div class="overflow-hidden">
             <div
               class="overflow-hidden whitespace-nowrap w-full antonio-uniquifier transform scale-y-110"
@@ -294,14 +297,13 @@
             </div>
           </div>
 
-          <!-- Hero cards -->
-          <div class="px-4 lg:px-7.5">
+          <div class="px-4 lg:px-7.5 reveal-up">
             <div class="flex w-full md:flex-row flex-col-reverse gap-5">
               <div
-                class="md:w-[50%] w-full rounded-2xl bg-white p-5 flex flex-col justify-between min-h-[300px] md:min-h-[400px]"
+                class="md:w-[50%] w-full rounded-2xl bg-white p-5 flex flex-col justify-between min-h-75 md:min-h-100"
               >
                 <h1
-                  class="md:text-4xl text-[18px] sm:text-[20px] font-[600px] w-full md:w-[85%] aboutMe leading-snug"
+                  class="md:text-4xl text-[18px] sm:text-[20px] font-[600px] w-full md:w-[85%] leading-snug"
                 >
                   Hello! I'm Christopher, a front-end developer passionate about
                   creating seamless, interactive, and dynamic websites. I
@@ -329,10 +331,10 @@
                   </div>
                 </a>
               </div>
-              <div class="md:w-[50%] w-full rounded-2xl bg-white p-4 md:p-7.5">
+              <div class="md:w-[50%] w-full rounded-2xl bg-white p-1 md:p-2">
                 <img
                   class="rounded-2xl w-full h-full object-cover"
-                  src="starter-code/assets/images/profilepic.jpg.jpeg"
+                  src="starter-code/assets/images/IMAGE.JPG"
                   alt=""
                 />
               </div>
@@ -341,7 +343,6 @@
 
           <div class="bg-(--divider) h-px mt-7 md:mt-20 lg:mt-45"></div>
 
-          <!-- About -->
           <div class="px-4 lg:px-7.5">
             <div
               id="about-section"
@@ -360,7 +361,7 @@
                 </h1>
               </div>
               <div class="text-white md:w-[50%] w-full text-xl md:text-3xl">
-                <p class="aboutmetext leading-relaxed">
+                <p class="leading-relaxed reveal-up">
                   I am a Front-end Web Developer from Nigeria, passionate about
                   creating interactive and seamless websites. I enjoy exploring
                   new web technologies and taking on freelance projects. In my
@@ -372,7 +373,6 @@
 
           <div class="bg-(--divider) h-px mt-7 md:mt-20 lg:mt-45"></div>
 
-          <!-- What I do -->
           <div class="lg:px-7.5 pt-6 pb-16 md:pb-24 px-4">
             <div class="flex md:flex-row flex-col w-full gap-8 md:gap-0">
               <div class="md:w-[50%] w-full">
@@ -382,10 +382,8 @@
                   here's what i do
                 </h1>
               </div>
-              <div class="md:w-[50%] w-full cards flex flex-col gap-6">
-                <!-- Cards row -->
+              <div class="md:w-[50%] w-full reveal-up flex flex-col gap-6">
                 <div class="w-full flex gap-4 flex-col sm:flex-row">
-                  <!-- Card 1 -->
                   <div class="sm:w-[50%] w-full">
                     <div
                       class="bg-(--bg-card) p-5 rounded-[10px] h-full flex flex-col"
@@ -429,7 +427,6 @@
                       </div>
                     </div>
                   </div>
-                  <!-- Card 2 -->
                   <div class="sm:w-[50%] w-full">
                     <div
                       class="bg-(--bg-card) p-5 rounded-[10px] h-full flex flex-col"
@@ -470,8 +467,6 @@
                     </div>
                   </div>
                 </div>
-
-                <!-- Explore button -->
                 <div class="mt-4 md:mt-10">
                   <a href="#works">
                     <div
@@ -499,8 +494,10 @@
             </div>
           </div>
 
-          <!-- ── PROJECTS (untouched) ──────────────────────────────────── -->
-          <div id="works" class="px-4 lg:px-7.5 mt-2.5 lg:mt-0 bg-white pb-20">
+          <div
+            id="works"
+            class="px-4 lg:px-7.5 mt-2.5 lg:mt-0 bg-white pb-20 reveal-up"
+          >
             <div class="flex justify-between text-white items-center pb-7.5">
               <p class="lg:text-[50px] text-[20px] font-bold">Projects</p>
               <p class="text-[12px] hover-text text-white">
@@ -509,9 +506,7 @@
               </p>
             </div>
             <div class="flex flex-col gap-17.25 projectsContainer">
-              <div
-                class="w-full flex lg:flex-row md:flex-row flex-col gap-7.5 reveal"
-              >
+              <div class="w-full flex lg:flex-row md:flex-row flex-col gap-7.5">
                 <div
                   class="w-full lg:w-[50%] relative project overflow-hidden group transform transition-transform duration-500 hover:scale-90 cursor-pointer"
                 >
@@ -582,10 +577,9 @@
             </div>
           </div>
 
-          <!-- ── CONTACT (untouched) ───────────────────────────────────── -->
           <div
             id="contactME"
-            class="lg:px-7.5 px-4 relative w-full bg-black py-12.5 text-white font-raleway contactME"
+            class="lg:px-7.5 px-4 relative w-full bg-black py-12.5 text-white font-raleway contactME reveal-up"
           >
             <div class="flex text-white font-sans flex-col lg:flex-col">
               <div class="flex justify-between">
@@ -633,7 +627,7 @@
                         >
                       </li>
                       <li>
-                        <a href="#about" class="hover-text"
+                        <a href="#about-section" class="hover-text"
                           ><span class="text top">About</span
                           ><span class="text bottom">About</span></a
                         >
@@ -713,7 +707,7 @@
                       >
                     </li>
                     <li>
-                      <a href="#about" class="hover-text"
+                      <a href="#about-section" class="hover-text"
                         ><span class="text top">About</span
                         ><span class="text bottom">About</span></a
                       >
@@ -744,7 +738,7 @@
               >
                 <p class="text-[14px]">&copy; 2026</p>
                 <div>
-                  <ul class="flex gap-10 links">
+                  <ul class="flex gap-10">
                     <li>
                       <a href="" class="hover-text contact-hover"
                         ><span class="text top">Twitter</span
@@ -764,7 +758,7 @@
                       >
                     </li>
                     <li>
-                      <a href="hover-text contact-hover"
+                      <a href="" class="hover-text contact-hover"
                         ><span class="text top">Instagram</span
                         ><span class="text bottom">Instagram</span></a
                       >
@@ -775,7 +769,6 @@
             </div>
           </div>
         </div>
-        <!-- end .Section -->
       </div>
     </div>
   </body>
