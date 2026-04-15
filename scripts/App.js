@@ -1,61 +1,65 @@
 document.addEventListener("DOMContentLoaded", () => {
   gsap.registerPlugin(ScrollTrigger);
 
-  gsap.fromTo(
-    ".nav-left",
-    { x: -120, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.1 },
-  );
-
-  gsap.fromTo(
-    ".nav-right",
-    { x: 120, opacity: 0 },
-    { x: 0, opacity: 1, duration: 1.1, ease: "power3.out", delay: 0.25 },
-  );
+  gsap.from(".nav-left", {
+    x: -120,
+    opacity: 0,
+    duration: 1.1,
+    ease: "power3.out",
+    delay: 0.1,
+  });
+  gsap.from(".nav-right", {
+    x: 120,
+    opacity: 0,
+    duration: 1.1,
+    ease: "power3.out",
+    delay: 0.25,
+  });
 
   const navbar = document.querySelector(".navbar-wrap");
   let lastScrollY = 0;
   let navbarHidden = false;
   let ticking = false;
 
-  window.addEventListener("scroll", () => {
-    if (!ticking) {
-      requestAnimationFrame(() => {
-        const currentScrollY = window.scrollY;
-
-        if (
-          currentScrollY > lastScrollY &&
-          currentScrollY > 80 &&
-          !navbarHidden
-        ) {
-          gsap.to(navbar, {
-            y: -80,
-            opacity: 0,
-            duration: 0.4,
-            ease: "power3.in",
-          });
-          navbarHidden = true;
-        } else if (currentScrollY < lastScrollY && navbarHidden) {
-          gsap.to(navbar, {
-            y: 0,
-            opacity: 1,
-            duration: 0.5,
-            ease: "power3.out",
-          });
-          navbarHidden = false;
-        }
-
-        lastScrollY = currentScrollY;
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-
+  window.addEventListener(
+    "scroll",
+    () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const currentScrollY = window.scrollY;
+          if (
+            currentScrollY > lastScrollY &&
+            currentScrollY > 80 &&
+            !navbarHidden
+          ) {
+            gsap.to(navbar, {
+              y: -80,
+              opacity: 0,
+              duration: 0.4,
+              ease: "power3.in",
+            });
+            navbarHidden = true;
+          } else if (currentScrollY < lastScrollY && navbarHidden) {
+            gsap.to(navbar, {
+              y: 0,
+              opacity: 1,
+              duration: 0.5,
+              ease: "power3.out",
+            });
+            navbarHidden = false;
+          }
+          lastScrollY = currentScrollY;
+          ticking = false;
+        });
+        ticking = true;
+      }
+    },
+    { passive: true },
+  );
   gsap.utils.toArray(".reveal-up").forEach((el) => {
     gsap.fromTo(
       el,
-      { y: 70, opacity: 0 },
+      { y: 70, opacity: 0, immediateRender: false },
       {
         y: 0,
         opacity: 1,
@@ -71,10 +75,18 @@ document.addEventListener("DOMContentLoaded", () => {
     );
   });
 
+  window.addEventListener(
+    "load",
+    () => {
+      ScrollTrigger.refresh();
+    },
+    { passive: true },
+  );
+
   gsap.utils.toArray(".aboutme, .whatido").forEach((el) => {
     gsap.fromTo(
       el,
-      { x: -80, opacity: 0 },
+      { x: -80, opacity: 0, immediateRender: false },
       {
         x: 0,
         opacity: 1,
@@ -126,12 +138,16 @@ document.addEventListener("DOMContentLoaded", () => {
         pos.currentY = 0;
       });
     });
-    footer.addEventListener("mousemove", (e) => {
-      mouseX = e.clientX;
-      mouseY = e.clientY;
-    });
+    footer.addEventListener(
+      "mousemove",
+      (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+      },
+      { passive: true },
+    );
 
-    function animate() {
+    function animateEyes() {
       eyeDots.forEach((dot, index) => {
         if (!mouseInFooter) {
           dot.style.transform = `translate(0px, 0px)`;
@@ -165,10 +181,9 @@ document.addEventListener("DOMContentLoaded", () => {
       } else if (eyeContainer) {
         eyeContainer.style.transform = `translate(0px, 0px)`;
       }
-      requestAnimationFrame(animate);
+      requestAnimationFrame(animateEyes);
     }
-
-    animate();
+    animateEyes();
 
     contactItems.forEach((item) => {
       item.addEventListener("mouseenter", () => {
@@ -290,6 +305,7 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: 0.55,
       transformOrigin: "bottom",
     });
+
     gsap.to(Section, {
       opacity: 1,
       y: 0,
@@ -298,6 +314,9 @@ document.addEventListener("DOMContentLoaded", () => {
       ease: "power2.out",
       pointerEvents: "auto",
       delay: 0.2,
+      onComplete: () => {
+        Section.style.pointerEvents = "auto";
+      },
     });
     menuOpen = false;
   }
@@ -311,7 +330,6 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const navbarWrap = document.querySelector(".navbar-wrap");
   const colorPill = document.querySelector(".color-pill");
-  const colorSwatches = document.querySelectorAll(".color-swatch");
 
   function applyTheme(theme) {
     document.body.classList.remove("theme-red", "theme-green");
@@ -341,8 +359,10 @@ document.addEventListener("DOMContentLoaded", () => {
         : openColorPicker();
     });
 
-    document.addEventListener("click", (e) => {
+    const closeOnOutside = (e) => {
       if (!colorPill.contains(e.target)) closeColorPicker();
-    });
+    };
+    document.addEventListener("click", closeOnOutside, { passive: true });
+    document.addEventListener("touchend", closeOnOutside, { passive: true });
   }
 });
