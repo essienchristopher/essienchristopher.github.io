@@ -56,6 +56,7 @@ document.addEventListener("DOMContentLoaded", () => {
     },
     { passive: true },
   );
+
   gsap.utils.toArray(".reveal-up").forEach((el) => {
     gsap.fromTo(
       el,
@@ -154,12 +155,12 @@ document.addEventListener("DOMContentLoaded", () => {
           return;
         }
         const rect = dot.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
-        const maxDistance = 8;
-        const targetX = Math.cos(angle) * maxDistance;
-        const targetY = Math.sin(angle) * maxDistance;
+        const angle = Math.atan2(
+          mouseY - (rect.top + rect.height / 2),
+          mouseX - (rect.left + rect.width / 2),
+        );
+        const targetX = Math.cos(angle) * 8;
+        const targetY = Math.sin(angle) * 8;
         const speed = index < 2 ? 0.4 : 0.5;
         eyePositions[index].currentX +=
           (targetX - eyePositions[index].currentX) * speed;
@@ -170,9 +171,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
       if (mouseInFooter && eyeContainer) {
         const rect = eyeContainer.getBoundingClientRect();
-        const centerX = rect.left + rect.width / 2;
-        const centerY = rect.top + rect.height / 2;
-        const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
+        const angle = Math.atan2(
+          mouseY - (rect.top + rect.height / 2),
+          mouseX - (rect.left + rect.width / 2),
+        );
         const targetX = Math.cos(angle) * 4;
         const targetY = Math.sin(angle) * 4;
         mouthPosition.currentX += (targetX - mouthPosition.currentX) * 0.12;
@@ -234,7 +236,6 @@ document.addEventListener("DOMContentLoaded", () => {
   const menuLinks = document.querySelectorAll(".menu a");
   const menuItems = document.querySelectorAll(".menu-item");
   const menuLines = document.querySelectorAll(".menu-item .h-0\\.5");
-
   let menuOpen = false;
 
   function openMenuFn() {
@@ -305,7 +306,6 @@ document.addEventListener("DOMContentLoaded", () => {
       delay: 0.55,
       transformOrigin: "bottom",
     });
-
     gsap.to(Section, {
       opacity: 1,
       y: 0,
@@ -334,17 +334,20 @@ document.addEventListener("DOMContentLoaded", () => {
   function applyTheme(theme) {
     document.body.classList.remove("theme-red", "theme-green");
     if (theme !== "default") document.body.classList.add(`theme-${theme}`);
+    localStorage.setItem("portfolio-theme", theme);
   }
 
   function openColorPicker() {
     navbarWrap.classList.add("color-open-active");
     colorPill.classList.add("color-open");
   }
-
   function closeColorPicker() {
     navbarWrap.classList.remove("color-open-active");
     colorPill.classList.remove("color-open");
   }
+
+  const savedTheme = localStorage.getItem("portfolio-theme");
+  if (savedTheme) applyTheme(savedTheme);
 
   if (colorPill) {
     colorPill.addEventListener("click", (e) => {
@@ -365,4 +368,47 @@ document.addEventListener("DOMContentLoaded", () => {
     document.addEventListener("click", closeOnOutside, { passive: true });
     document.addEventListener("touchend", closeOnOutside, { passive: true });
   }
+
+  document.querySelectorAll(".project").forEach((project) => {
+    const circle = document.createElement("div");
+    circle.className = "project-cursor-circle";
+    const text =
+      "View Project \u2022 View Project \u2022 View Project \u2022 View Project \u2022 ";
+    circle.innerHTML = `<div class="project-cursor-track">${text}${text}</div>`;
+    project.appendChild(circle);
+
+    gsap.set(circle, { opacity: 0, scale: 0.7 });
+
+    project.addEventListener("mouseenter", () => {
+      gsap.to(circle, {
+        opacity: 1,
+        scale: 1,
+        duration: 0.45,
+        ease: "back.out(1.4)",
+      });
+    });
+
+    project.addEventListener(
+      "mousemove",
+      (e) => {
+        const rect = project.getBoundingClientRect();
+        gsap.to(circle, {
+          x: e.clientX - rect.left - 60,
+          y: e.clientY - rect.top - 60,
+          duration: 0.25,
+          ease: "power2.out",
+        });
+      },
+      { passive: true },
+    );
+
+    project.addEventListener("mouseleave", () => {
+      gsap.to(circle, {
+        opacity: 0,
+        scale: 0.7,
+        duration: 0.35,
+        ease: "power3.in",
+      });
+    });
+  });
 });
