@@ -60,6 +60,11 @@
   transform: translateY(-6.5px) rotate(-45deg);
 }
 
+.menu-item .h-0\.5 {
+  height: 3px;
+  border-radius: 0 0 80px 80px / 0 0 5px 5px;
+}
+
 .hover-text {
   position: relative;
   display: inline-block;

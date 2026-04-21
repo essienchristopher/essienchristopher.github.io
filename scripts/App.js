@@ -361,7 +361,6 @@ document.addEventListener("DOMContentLoaded", () => {
         ? closeColorPicker()
         : openColorPicker();
     });
-
     const closeOnOutside = (e) => {
       if (!colorPill.contains(e.target)) closeColorPicker();
     };
@@ -377,7 +376,7 @@ document.addEventListener("DOMContentLoaded", () => {
     circle.innerHTML = `<div class="project-cursor-track">${text}${text}</div>`;
     project.appendChild(circle);
 
-    gsap.set(circle, { opacity: 0, scale: 0.7 });
+    gsap.set(circle, { opacity: 0, scale: 0.7, x: 0, y: 0 });
 
     project.addEventListener("mouseenter", () => {
       gsap.to(circle, {
@@ -385,6 +384,7 @@ document.addEventListener("DOMContentLoaded", () => {
         scale: 1,
         duration: 0.45,
         ease: "back.out(1.4)",
+        overwrite: true,
       });
     });
 
@@ -397,6 +397,7 @@ document.addEventListener("DOMContentLoaded", () => {
           y: e.clientY - rect.top - 60,
           duration: 0.25,
           ease: "power2.out",
+          overwrite: "auto",
         });
       },
       { passive: true },
@@ -406,8 +407,9 @@ document.addEventListener("DOMContentLoaded", () => {
       gsap.to(circle, {
         opacity: 0,
         scale: 0.7,
-        duration: 0.35,
+        duration: 0.3,
         ease: "power3.in",
+        overwrite: true,
       });
     });
   });
