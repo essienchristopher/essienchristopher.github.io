@@ -531,6 +531,9 @@
   .flex-col-reverse {
     flex-direction: column-reverse;
   }
+  .flex-wrap {
+    flex-wrap: wrap;
+  }
   .items-center {
     align-items: center;
   }
@@ -593,6 +596,12 @@
   }
   .gap-\[69px\] {
     gap: 69px;
+  }
+  .gap-x-8 {
+    column-gap: calc(var(--spacing) * 8);
+  }
+  .gap-y-3 {
+    row-gap: calc(var(--spacing) * 3);
   }
   .overflow-hidden {
     overflow: hidden;
@@ -1927,6 +1936,9 @@ body.theme-green {
   100% {
     transform: translateX(-50%);
   }
+}
+.card-shadow {
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.45), 0 2px 8px rgba(0, 0, 0, 0.3);
 }
 @property --tw-translate-x {
   syntax: "*";
